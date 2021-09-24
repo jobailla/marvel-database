@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { ChevronLeftIcon } from '@fluentui/react-icons-mdl2';
 import './Topbar.scss'
+import Search from '../Search';
 
 interface Props {
 
@@ -19,7 +20,7 @@ export default function Topbar({ }: Props): ReactElement {
                 </ul>
             </div>
             <div className='topbar__search'>
-
+                <Search />
             </div>
         </div>
     )

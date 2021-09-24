@@ -3,9 +3,9 @@
 
 .topbar {
     display: grid;
-    grid-template-columns: auto auto 5fr;
+    grid-template-columns: 75px repeat(3, 1fr);
     grid-template-rows: auto;
-    grid-template-areas: "return category search";
+    grid-template-areas: "return category search gap";
     height: 100%;
     background-color: $dark-black;
     z-index: 1000;
@@ -28,7 +28,8 @@
 
     &__category {
         grid-area: category;
-        @include flex-center;
+        display: flex;
+        justify-content: flex-start;
 
         ul {
             display: flex;
@@ -53,5 +54,7 @@
 
     &__search {
         grid-area: search;
+        display: flex;
+        @include flex-center;
     }
 }
