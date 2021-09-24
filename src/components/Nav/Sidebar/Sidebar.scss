@@ -1,0 +1,48 @@
+@import '../../../styles/_settings/variables';
+@import '../../../styles/_settings/mixins';
+
+@mixin sidebar-button {
+        @include flex-center;
+        cursor: pointer;
+        background-color: $light-black;
+        margin: 10px 20px; 
+        border-radius: 5px; 
+
+        &:hover {
+            background-color: $light-grey;
+            border: 1px solid $white;
+        }
+}
+
+.sidebar {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 75px 1px 75px auto;
+    grid-template-areas: 
+    "library"
+    "separator"
+    "ascending";
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+    background-color: $dark-black;
+    z-index: 1001;
+
+    &__library {
+        grid-area: library;
+        @include sidebar-button;
+    }
+
+    &__ascending {
+        grid-area: ascending;
+        @include sidebar-button;
+    }
+
+    &__separator {
+        grid-area: separator;
+        width: 80%;
+        display: flex;
+        border-top: 1px solid #282a2a;
+        margin-left: 10%
+    }
+}

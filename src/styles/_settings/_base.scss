@@ -1,0 +1,19 @@
+@import "./variables";
+@import "./mixins";
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  background: $light-black;
+  
+  @include media(desktop) {
+    font-size: 72.5%;
+  }
+}
+
+body {
+  font-family: "Bahnschrift";
+  font-size: 1.4rem;
+  background-color: $light-black;
+  color: $white;
+}

@@ -1,0 +1,57 @@
+@import '../../../styles/_settings/variables';
+@import '../../../styles/_settings/mixins';
+
+.topbar {
+    display: grid;
+    grid-template-columns: auto auto 5fr;
+    grid-template-rows: auto;
+    grid-template-areas: "return category search";
+    height: 100%;
+    background-color: $dark-black;
+    z-index: 1000;
+
+    &__return {
+        grid-area: return;
+        @include flex-center;
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 5px;
+
+        &:hover {
+            background-color: $light-black;
+        }
+
+        &__chevron {
+            color: $grey;
+        }
+    }
+
+    &__category {
+        grid-area: category;
+        @include flex-center;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        li {
+            margin: auto 15px ;
+            cursor: pointer;
+            font-family: 'Segoe UI', sans-serif;
+            text-transform: uppercase;
+            color: $grey;
+
+            &:hover {
+                color: $white;
+                font-weight: bold;
+            }
+        }
+
+    }
+
+    &__search {
+        grid-area: search;
+    }
+}
