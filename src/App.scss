@@ -3,34 +3,3 @@
 @import "./styles/_settings/mixins";
 @import "./styles/_settings/base";
 
-.App {
-    display: grid;
-    height: 100vh;
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: 40px 1fr;
-    grid-template-areas:
-        "logo topbar"
-        "sidebar content";
-
-    &__sidebar {
-        grid-area: sidebar;
-    }
-
-    &__topbar {
-        grid-area: topbar;
-    }
-
-
-    &__logo {
-        grid-area: logo;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $dark-black;
-    }
-    
-    &__content {
-        grid-area: content;
-        @include flex-center;
-    }
-}
