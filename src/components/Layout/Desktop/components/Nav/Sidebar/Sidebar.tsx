@@ -1,17 +1,12 @@
-import React, { ReactElement } from 'react'
-import { LibraryIcon, AscendingIcon } from '@fluentui/react-icons-mdl2';
+import { AscendingIcon, LibraryIcon } from '@fluentui/react-icons-mdl2';
+import React, { ReactElement } from 'react';
+import './Sidebar.scss';
 
-import './Sidebar.scss'
-
-interface Props {
-    
-}
-
-export default function Sidebar({}: Props): ReactElement {
+export default function Sidebar(): ReactElement {
     return (
         <div className='sidebar'>
             <div className='sidebar__library'>
-                <LibraryIcon />                
+                <LibraryIcon />
             </div>
             <div className='sidebar__separator' />
             <div className='sidebar__ascending'>

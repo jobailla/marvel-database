@@ -1,18 +1,14 @@
-import React, { ReactElement } from 'react'
 import { ChevronLeftIcon } from '@fluentui/react-icons-mdl2';
-import './Topbar.scss'
-import Search from '../Search';
+import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
+import Search from '../Search';
+import './Topbar.scss';
 
-interface Props {
-
-}
-
-export default function Topbar({ }: Props): ReactElement {
+export default function Topbar(): ReactElement {
     return (
         <div className='topbar'>
             <div className='topbar__return'>
-                <ChevronLeftIcon className='topbar__return__chevron'/>
+                <ChevronLeftIcon className='topbar__return__chevron' />
             </div>
             <div className='topbar__category'>
                 <ul>

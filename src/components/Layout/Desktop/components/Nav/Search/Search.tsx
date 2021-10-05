@@ -1,12 +1,7 @@
-import React, { ReactElement } from 'react'
-import { SearchIcon } from '@fluentui/react-icons-mdl2';
-import './Search.scss'
+import { ReactElement } from 'react';
+import './Search.scss';
 
-interface Props {
-
-}
-
-export default function Search({ }: Props): ReactElement {
+export default function Search(): ReactElement {
     return (
         <div className='search'>
             <input className='search__input' type="text" placeholder="Search comics..." />

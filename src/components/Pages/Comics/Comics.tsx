@@ -1,10 +1,6 @@
 import React, { ReactElement } from 'react'
 
-interface Props {
-    
-}
-
-export default function Comics({}: Props): ReactElement {
+export default function Comics(): ReactElement {
     return (
         <div>
             <h1>Comics</h1>
