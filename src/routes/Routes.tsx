@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { BrowserRouter as Router, Redirect, Switch } from 'react-router-dom'
 import Desktop from '../components/Layout/Desktop'
-import Characters from '../components/Pages/Characters'
+import Characters from '../components/Gallery'
 import Comics from '../components/Pages/Comics'
 import RouteWithLayout from './RouteWithLayout'
 
