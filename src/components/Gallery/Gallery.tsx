@@ -3,6 +3,11 @@ import { ReactElement } from 'react';
 import { useFetch } from '../../customHooks/useFetch';
 import './Gallery.scss';
 
+interface Props {
+    path: string;
+    parseData: (data: any) => ReactElement;
+}
+
 interface Idata {
     data: any[];
     error: boolean;
@@ -11,43 +16,31 @@ interface Idata {
     total: number;
 }
 
-export default function Gallery(): ReactElement {
-    const timeout = 10000;
-    const path = 'characters'
 
-    const parseData = (data: any) => {
-        const parsed = data.map((v: any) => {
-            return ({
-                id: v.id,
-                name: v.name,
-                image: v.thumbnail.path + '/portrait_fantastic.' + v.thumbnail.extension
-            })
-        })
-        return parsed;
-    }
+export default function Gallery({ path, parseData }: Props): ReactElement {
+    const timeout = 10000;
 
     const assembleData = (total: number) => {
         let assembled = [];
         for (let i = 0; i <= total; i++) {
-             const fragment = localStorage.getItem(path + '_' + i.toString());
-                if (fragment) {
-                    assembled.push(JSON.parse(fragment));
-                }
+            const fragment = localStorage.getItem(path + '_' + i.toString());
+            if (fragment) {
+                assembled.push(JSON.parse(fragment));
+            }
         }
         return assembled.flat();
     }
 
     const { total }: Idata = useFetch(path, parseData, timeout);
     const gallery = assembleData(total);
-    console.log(gallery);
 
     return (
         <div className='gallery'>
             {
                 gallery ?
-                    gallery.map((character: any) => {
+                    gallery.map((character: any, i: number) => {
                         return (
-                            <div className='gallery__cards' key={character.id}>
+                            <div className='gallery__cards' key={i + '_' + character.name + '_' + character.id}>
                                 <div className='gallery__cards__image'>
                                     <img src={character.image} alt={character.name} />
                                 </div>
