@@ -36,10 +36,11 @@ export const useFetch = (path: string, parseData: (data: any) => any, timeout?: 
             const parsedData = JSON.parse(storageData.toString());
             parseDataLength = parsedData.length;
         }
-
+        console.log(parseDataLength);
         if (!datas[index] && index <= total) {
             if ((parseDataLength <= (total * limit)) || first) {
                 setFirst(false);
+                console.log('fetching');
                 axios.get(api.baseUrl, {
                     cancelToken: source.token,
                     timeout: timeout,
@@ -56,9 +57,10 @@ export const useFetch = (path: string, parseData: (data: any) => any, timeout?: 
                         datas[index] = res.data.data.results;
                         setIndex(index + 1);
                         setOffset(offset + limit);
+                        console.log('fetched');
+                        localStorage.setItem(path + '_' + index, JSON.stringify(parseData(datas[index])));
                         if (!unmounted) {
                             setData((arr: any) => [...arr, ...datas[index]]);
-                            localStorage.setItem(path + '_' + index, JSON.stringify(parseData(datas[index])));
                             setLoading(false);
                         }
                     })
